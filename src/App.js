@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Marketplace from './components/Marketplace';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="bg-gray-100">
+      <header className="bg-blue-800 text-white p-4 text-center mb-4">
+        <h1 className="text-4xl">LongevityVerse Marketplace</h1>
       </header>
+      <Marketplace />
     </div>
   );
 }
