@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Marketplace from './components/Marketplace';
+import Marketplace from './components/Marketplace.mjs';
 
 function App() {
   return (
