@@ -1,7 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const Product = require('./src/models/Product.mjs');
+//const express = require('express');
+import express from 'express';
+//const cors = require('cors');
+import cors from 'cors';
+import mongoose from 'mongoose';
+import Product from './src/models/Product.mjs';
 
 const app = express();
 const port = process.env.PORT || 5000;
