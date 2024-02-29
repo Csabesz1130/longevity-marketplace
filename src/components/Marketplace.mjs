@@ -14,13 +14,11 @@ const Marketplace = () => {
   // Sample categories for demonstration
   const categories = ['Supplements', 'Therapies', 'Clinics', 'Wearables', 'Nutrition'];
 
-  // Inside your `Marketplace.mjs` file
-  {categories.map((category, index) => (
-    <button key={index} onClick={() => handleCategoryClick(category)} className="flex items-center text-sm font-medium rounded-md px-3 py-2">
-      {category}
-    </button>
-  ))}
-
+  // Define the handleCategoryClick function
+  const handleCategoryClick = (category) => {
+    console.log(`Category clicked: ${category}`);
+    // TODO: Implement what should happen when a category is clicked
+  };
 
   return (
     <main className="flex-1 grid md:grid-cols-[200px_1fr] gap-4 p-4 md:gap-8 md:p-6">
@@ -28,9 +26,10 @@ const Marketplace = () => {
         <Collapsible title="All Categories">
           <div className="grid gap-2">
             {categories.map((category, index) => (
-              <a key={index} href="#" className="flex items-center text-sm font-medium rounded-md px-3 py-2">
+              // Replace the <a> tag with a <button> for better accessibility
+              <button key={index} onClick={() => handleCategoryClick(category)} className="flex items-center text-sm font-medium rounded-md px-3 py-2">
                 {category}
-              </a>
+              </button>
             ))}
           </div>
         </Collapsible>
@@ -41,6 +40,7 @@ const Marketplace = () => {
             <img src={product.image} className="mx-auto mb-2" alt={product.name} />
             <h2 className="text-xl mb-2">{product.name}</h2>
             <p className="mb-4">{product.description}</p>
+            // Ensure the href is a valid URL
             <a href={product.detailsUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-800 hover:bg-blue-700 text-white rounded px-4 py-1">View Details</a>
           </div>
         ))}
