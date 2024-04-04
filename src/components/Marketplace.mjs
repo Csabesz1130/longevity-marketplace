@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ProductCard from './ProductCard'; // Adjust the import path as necessary
+import ProductCard from './ProductCard'; // Ensure this import path is correct
 
 export function Marketplace() {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,8 @@ export function Marketplace() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/products');
+        // Update the fetch URL to include search query
+        const response = await fetch(`/api/products?search=${searchQuery}`);
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -26,14 +27,7 @@ export function Marketplace() {
     }
 
     fetchData();
-  }, []);
-
-  const filteredProducts = products.filter((product) => {
-    const matchesSearchQuery = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === '' || product.category === selectedCategory;
-    return matchesSearchQuery && matchesCategory;
-  });
+  }, [searchQuery]); // Add searchQuery as a dependency
 
   if (isLoading) {
     return <div className="loading">Loading...</div>;
@@ -45,7 +39,6 @@ export function Marketplace() {
 
   return (
     <div className="marketplace">
-      {/* Marketplace Header */}
       <div className="marketplace-header">
         <h2>Longevity Marketplace</h2>
         <input
@@ -64,12 +57,11 @@ export function Marketplace() {
           <option value="Devices">Devices</option>
         </select>
       </div>
-      {/* Check if filteredProducts is empty */}
-      {filteredProducts.length === 0 ? (
+      {products.length === 0 ? (
         <div className="no-products">No products found.</div>
       ) : (
         <div className="product-grid">
-          {filteredProducts.map((product) => (
+          {products.map((product) => (
             <Link to={`/product/${product.id}`} key={product.id}>
               <ProductCard product={product} />
             </Link>

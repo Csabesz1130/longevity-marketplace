@@ -20,6 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "node server.mjs",
+    "dev": "concurrently \"npm start\" \"npm run start-server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

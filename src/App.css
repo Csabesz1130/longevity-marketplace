@@ -1,38 +1,53 @@
+/* General App styling */
 .App {
   text-align: center;
+  font-family: 'Arial', sans-serif; /* Use a modern font */
+  background-color: #f0f2f5; /* Lighter background for a fresh look */
+  color: #333; /* Darker text for contrast */
 }
 
+/* Logo styling */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 20vmin; /* Adjusted for a more proportional size */
+  animation: App-logo-bounce 2s ease infinite; /* Subtle bounce animation */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header styling */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ffffff; /* Bright and clean header background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(12px + 1.5vmin);
 }
 
+/* Link styling */
 .App-link {
-  color: #61dafb;
+  color: #007bff; /* Bootstrap primary color for a familiar feel */
+  transition: color 0.2s ease-in-out; /* Smooth color transition on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-link:hover,
+.App-link:focus {
+  color: #0056b3; /* Darker shade on hover/focus for interactivity */
+}
+
+/* Keyframes for logo bounce animation */
+@keyframes App-logo-bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App-header {
+    min-height: 90vh; /* Adjusted height for smaller screens */
   }
 }
