@@ -2,9 +2,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Marketplace from './components/Marketplace'; // Adjusted to .js extension
-import ProductDetails from './components/ProductDetails'; // Ensure this matches your file structure
-import Navigation from './components/Navigation'; // Ensure Navigation component is properly imported
+import { ProductCard } from './ProductCard.mjs';
+import Marketplace from './components/Marketplace.mjs';
+import ProductDetails from './components/ProductDetails.mjs';
+import Navigation from './components/Navigation.mjs';
 
 function App() {
   return (
