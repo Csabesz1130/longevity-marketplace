@@ -30,6 +30,16 @@ const ProductDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const handleDistributorLinkClick = () => {
+    window.gtag('event', 'click', {
+      event_category: 'Distributor Link',
+      event_label: product.name,
+      value: 1,
+    });
+
+    window.open(product.detailsUrl, '_blank');
+  };
+
   // Inside your return statement in ProductDetails.mjs
 return (
   <div className="max-w-4xl mx-auto p-4 space-y-4">
