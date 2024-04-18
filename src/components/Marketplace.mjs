@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import ProductCard from './ProductCard'; // Ensure this import path is correct
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ProductCard } from "./ProductCard.mjs"; // Ensure this import path is correct
 
 export function Marketplace() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     async function fetchData() {
       try {
-        // Update the fetch URL to include search query
         const response = await fetch(`/api/products?search=${searchQuery}`);
         if (!response.ok) {
-          throw new Error('Failed to fetch products');
+          throw new Error("Failed to fetch products");
         }
         const productsData = await response.json();
         setProducts(productsData);
@@ -27,7 +26,7 @@ export function Marketplace() {
     }
 
     fetchData();
-  }, [searchQuery]); // Add searchQuery as a dependency
+  }, [searchQuery]);
 
   if (isLoading) {
     return <div className="loading">Loading...</div>;

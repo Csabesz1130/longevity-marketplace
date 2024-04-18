@@ -1,11 +1,9 @@
-// src/App.mjs
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import ProductCard from './ProductCard.mjs';
-import { Marketplace } from './components/Marketplace.mjs';
-import ProductDetails from './components/ProductDetails.mjs';
-import Navigation from './components/Navigation.mjs';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Marketplace } from "./components/Marketplace.mjs";
+import ProductDetails from "./components/ProductDetails.mjs";
+import Navigation from "./components/Navigation.mjs";
 
 function App() {
   return (
