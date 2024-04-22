@@ -48,13 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "devServer": {
-    "allowedHosts": [
-      ".csb.app", 
-      "localhost"
-    ],
-    "headers": {
-      "Access-Control-Allow-Origin": "*",
-    },
   "proxy": "http://localhost:5000"
 }
